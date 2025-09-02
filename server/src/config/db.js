@@ -1,11 +1,10 @@
-import dotenv from 'dotenv';
-dotenv.config();
+// ESM, Mongoose connection helper
+import mongoose from "mongoose";
 
-import mongoose from 'mongoose';
+export default async function connectDB() {
+  const uri = process.env.MONGO_URI;
+  if (!uri) throw new Error("Missing MONGO_URI");
 
-const uri = process.env.MONGO_URI;
-if (!uri) throw new Error('Missing MONGO_URI');
-
-mongoose.connect(uri)
-  .then(() => console.log('Mongo connected'))
-  .catch(err => console.error('Mongo error', err));
+  await mongoose.connect(uri);
+  console.log("Mongo connected");
+}

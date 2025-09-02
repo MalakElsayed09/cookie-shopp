@@ -1,7 +1,20 @@
+import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 
 export default function CartOffcanvas({ items = [], subtotal = 0 }) {
   const { dispatch } = useCart();
+  const navigate = useNavigate();
+
+  const goCheckout = () => {
+    // Close the offcanvas if Bootstrap JS is present
+    const el = document.getElementById("cartDrawer");
+    if (el && window.bootstrap?.Offcanvas) {
+      window.bootstrap.Offcanvas.getOrCreateInstance(el).hide();
+    }
+    // Navigate to /checkout
+    navigate("/checkout");
+  };
 
   return (
     <div className="offcanvas offcanvas-end" tabIndex="-1" id="cartDrawer">
@@ -9,6 +22,7 @@ export default function CartOffcanvas({ items = [], subtotal = 0 }) {
         <h5 className="offcanvas-title">Your Cart</h5>
         <button type="button" className="btn-close" data-bs-dismiss="offcanvas"></button>
       </div>
+
       <div className="offcanvas-body">
         {items.length === 0 && <p className="text-muted">Your cart is empty.</p>}
 
@@ -35,7 +49,10 @@ export default function CartOffcanvas({ items = [], subtotal = 0 }) {
           <strong>${subtotal.toFixed(2)}</strong>
         </div>
 
-        <button className="btn btn-dark w-100 mt-3">Checkout</button>
+        {/* Programmatic close + navigate */}
+        <button className="btn btn-dark w-100 mt-3" onClick={goCheckout}>
+          Go to Checkout
+        </button>
       </div>
     </div>
   );

@@ -1,10 +1,24 @@
-import { Router } from 'express';
-import { list, getOne, create, update, remove } from '../controllers/product.controller.js';
-import { requireAuth, requireAdmin } from '../middleware/auth.js';
-const r = Router();
-r.get('/', list);
-r.get('/:slug', getOne);
-r.post('/', requireAuth, requireAdmin, create);
-r.put('/:id', requireAuth, requireAdmin, update);
-r.delete('/:id', requireAuth, requireAdmin, remove);
-export default r;
+// server/src/routes/product.routes.js
+import { Router } from "express";
+import requireAuth from "../middleware/requireAuth.js";
+import requireAdmin from "../middleware/requireAdmin.js";
+import {
+  listProducts,
+  getProductBySlug,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} from "../controllers/productController.js"; // ✅ matches filename + named exports
+
+const router = Router();
+
+// Public reads
+router.get("/", listProducts);
+router.get("/:slug", getProductBySlug);
+
+// Admin writes
+router.post("/", requireAuth, requireAdmin, createProduct);
+router.put("/:id", requireAuth, requireAdmin, updateProduct);
+router.delete("/:id", requireAuth, requireAdmin, deleteProduct);
+
+export default router;
