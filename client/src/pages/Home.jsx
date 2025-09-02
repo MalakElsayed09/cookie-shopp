@@ -2,6 +2,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import HeroVideo from "../components/HeroVideo.jsx";
+import Menu from "./Menu.jsx";
 const API = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
 export default function Home(){
@@ -11,17 +13,16 @@ export default function Home(){
 
   return (
     <>
-      <header className="py-5 section-cream mb-4">
-        <div className="container text-center">
-          <span className="badge badge-rotating rounded-pill mb-3 px-3 py-2">Rotating Weekly</span>
-          <h1 className="display-4 fw-bold">Freshly Baked Cookies</h1>
-          <p className="lead text-muted mb-4">New flavors weekly. Order for pickup or delivery.</p>
-          <Link className="btn btn-dark btn-lg" to="/menu">See This Week’s Menu</Link>
-        </div>
-      </header>
+      {/* Hero video banner */}
+      <HeroVideo />
 
-      <section className="container">
-        <h2 className="fw-bold mb-3">This Week’s Flavors</h2>
+      {/* Weekly flavors */}
+      <section className="container py-5">
+        <div className="d-flex justify-content-between align-items-end mb-3">
+          <h2 className="fw-bold m-0">This Week’s Flavors</h2>
+          <Link className="btn btn-outline-dark" to="/menu">See Full Menu</Link>
+        </div>
+
         <div className="row g-3">
           {weekly.map(p => (
             <div className="col-12 col-sm-6 col-lg-4 col-xl-3" key={p._id}>

@@ -10,7 +10,7 @@ import Checkout from "./pages/Checkout.jsx";
 import Admin from "./pages/Admin.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import OrderConfirmation from "./pages/OrderConfirmation.jsx";
-
+import Home from "./pages/Home.jsx";
 
 export default function App() {
   return (
@@ -75,7 +75,7 @@ function Shell() {
 
       <main className="container py-4">
         <Routes>
-          <Route path="/" element={<Menu />} />
+          <Route path="/" element={<Home />} />
           <Route path="/menu" element={<Menu />} />
           <Route path="/stores" element={<Stores />} />
           <Route path="/login" element={<Login />} />

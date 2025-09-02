@@ -66,3 +66,22 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.hero-video {
+  height: 60vh;           /* big & immersive on desktop */
+  object-fit: cover;      /* fill without squishing */
+}
+
+@media (max-width: 576px) {
+  .hero-video { height: 45vh; }
+}
+
+/* Respect users who prefer reduced motion: show poster image instead of playing video */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    display: none;
+  }
+  .hero-poster {
+    display: block;
+  }
+}
