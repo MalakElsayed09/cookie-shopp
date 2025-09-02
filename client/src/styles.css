@@ -1,0 +1,18 @@
+:root{
+  --brand-pink:#f7c9d8;       /* main */
+  --brand-deep:#1c1c1c;       /* text */
+  --brand-cream:#fff5f8;      /* sections */
+  --bs-primary: var(--brand-pink);
+}
+
+/* Big, clean typography */
+h1,h2,h3,.display-1,.display-2{ letter-spacing:-.5px; }
+.btn-dark{ background:#111; border:0; }
+.badge-rotating{ background: var(--brand-pink); color:#111; }
+
+/* Card polish */
+.card{ border:0; border-radius:1.25rem; box-shadow:0 8px 24px rgba(0,0,0,.06); }
+.card-img-top{ border-top-left-radius:1.25rem; border-top-right-radius:1.25rem; }
+
+/* Section backgrounds */
+.section-cream{ background:var(--brand-cream); border-radius:1.5rem; }

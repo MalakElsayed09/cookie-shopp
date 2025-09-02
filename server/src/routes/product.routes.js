@@ -1,0 +1,10 @@
+import { Router } from 'express';
+import { list, getOne, create, update, remove } from '../controllers/product.controller.js';
+import { requireAuth, requireAdmin } from '../middleware/auth.js';
+const r = Router();
+r.get('/', list);
+r.get('/:slug', getOne);
+r.post('/', requireAuth, requireAdmin, create);
+r.put('/:id', requireAuth, requireAdmin, update);
+r.delete('/:id', requireAuth, requireAdmin, remove);
+export default r;

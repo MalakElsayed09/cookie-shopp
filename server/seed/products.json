@@ -1,0 +1,22 @@
+[
+  { "name":"Chilled Sugar Cookie","slug":"chilled-sugar","price":4.25,"calories":420,"imageUrl":"sugar1.jpeg","tags":["chilled","weekly"],"isFeatured":true },
+  { "name":"Chocolate Chip","slug":"choc-chip","price":4.25,"calories":480,"imageUrl":"choc1.webp","tags":["classic"],"isFeatured":true },
+  {
+    "name": "Peanut Butter Cup",
+    "slug": "pb-cup",
+    "price": 4.50,
+    "calories": 500,
+    "imageUrl": "pb.jpg",
+    "tags": ["peanut", "weekly"],
+    "isFeatured": false
+  },
+  {
+    "name": "Oreo Cheesecake",
+    "slug": "oreo-cheesecake",
+    "price": 4.75,
+    "calories": 530,
+    "imageUrl": "oreo.jpg",
+    "tags": ["chilled"],
+    "isFeatured": false
+  }
+]

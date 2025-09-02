@@ -1,0 +1,11 @@
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+import '../src/config/db.js';
+import Product from '../src/models/Product.js';
+const __dirname = path.dirname(url.fileURLToPath(import.meta.url));
+const data = JSON.parse(fs.readFileSync(path.join(__dirname,'products.json')));
+await Product.deleteMany({});
+await Product.insertMany(data);
+console.log('Seeded products:', data.length);
+process.exit(0);
