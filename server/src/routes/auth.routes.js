@@ -1,9 +1,11 @@
 import { Router } from 'express';
-import { register, login, me, logout } from '../controllers/auth.controller.js';
+import { register, login, me, logout, verifyEmail, resendVerification, } from '../controllers/auth.controller.js';
 import requireAuth from '../middleware/requireAuth.js';
 const r = Router();
 r.post('/register', register);
 r.post('/login', login);
 r.get('/me', requireAuth, me);
 r.post('/logout', logout);
+r.get("/verify", verifyEmail);
+r.post("/resend-verification", resendVerification);
 export default r;

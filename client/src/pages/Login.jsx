@@ -15,7 +15,13 @@ export default function Login() {
       await login(form);
       nav("/menu");
     } catch (e) {
-      setErr(e?.response?.data?.message || "Invalid credentials");
+      //setErr(e?.response?.data?.message || "Invalid credentials");
+      if (m?.toLowerCase().includes("verify")) {
+    // send them to verify page
+    nav("/verify-email", { state: { email: form.email } });
+  } else {
+    setErr(m || "Invalid credentials");
+  }
     }
   };
 

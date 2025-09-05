@@ -11,6 +11,7 @@ import Admin from "./pages/Admin.jsx";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import OrderConfirmation from "./pages/OrderConfirmation.jsx";
 import Home from "./pages/Home.jsx";
+import VerifyEmail from "./pages/VerifyEmail.jsx";
 
 export default function App() {
   return (
@@ -81,6 +82,7 @@ function Shell() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
+           <Route path="/verify-email" element={<VerifyEmail />} />
           {/* Logged-in users only */}
   <Route
     path="/checkout"
